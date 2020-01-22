@@ -9,12 +9,24 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var yearLabel: UILabel!
+    @IBOutlet weak var yearImages: UIImageView!
+    var startingYear = 2020
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+    @IBAction func nextYearButtonPressed(_ sender: UIButton) {
+        startingYear += 1
+        yearLabel.text = String(startingYear)
+        yearImages.image = UIImage(named: "image\((startingYear-4)%12)")
+    }
+    @IBAction func thisYearButtonPressed(_ sender: UIButton) {
+        startingYear -= 1
+        yearLabel.text = String(startingYear)
+        yearImages.image = UIImage(named: "image\((startingYear-4)%12)")
+    }
+    
 
 }
 
